@@ -20,3 +20,9 @@ use Illuminate\Http\Request;
     Route::get('/getuser/', 'UsersController@getUser');
     Route::post('/postuser/', 'UsersController@registr');
     Route::post('/auto/', 'UsersController@auto');
+
+    Route::post('logout', 'UsersController@logout');
+
+    Route::get('getproducts', 'ProductsController@getProducts');
+    Route::post('addproducts', 'ProductsController@postProducts');
+    Route::delete('delproducts', 'ProductsController@deleteProducts');
