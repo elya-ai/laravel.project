@@ -57,7 +57,7 @@ class UsersController extends Controller
     				'message' => 'Validation error',
     				'errors' => $validator->errors(),
     			]
-    		]);
+    		]);-
     	}
     	$users = Users::where("name", $req->name)->first();*/
 

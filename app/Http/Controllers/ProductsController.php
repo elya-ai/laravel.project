@@ -26,7 +26,7 @@ class ProductsController extends Controller
 
         if($b)
             return "Все акей";
-           return"Не, акей";
+           return"Не акей";
     }
 
       public function deleteProducts(Request $req)

@@ -26,3 +26,9 @@ use Illuminate\Http\Request;
     Route::get('getproducts', 'ProductsController@getProducts');
     Route::post('addproducts', 'ProductsController@postProducts');
     Route::delete('delproducts', 'ProductsController@deleteProducts');
+
+    Route::get('gethuman', 'HumansController@getHuman');
+    Route::post('posthuman', 'HumansController@register');
+    Route::post('addhuman', 'HumansController@auth');
+
+    Route::post('logout', 'HumansController@logout');
