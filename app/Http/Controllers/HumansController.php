@@ -20,7 +20,7 @@ class HumansController extends Controller
     {
     	$validator = Validator::make($req->all(),
     		[
-    			'username' => 'required',
+    			'name' => 'required',
     			'login' => 'required',
     			'password' => 'required',
     		]);
@@ -38,36 +38,36 @@ class HumansController extends Controller
 
     public function auth(Request $req)
     {
-    	$validator = Validator::make($req->all(),
-    		[
-    			'login' => 'required',
-    			'password' => 'required',
-    		]);
+        $validator = Validator::make($req->all(), [
+            'login' => 'required',
+            'password' => 'required',
+        ]);
 
     	if($validator->fails()) {
     		return response()->json($validator->errors());
     	}
 
-    	if($humans = Human::where('login', $req->login)->first())
+    	if($human = Human::where('login', $req->login)->first())
     	{
-    		if($req->password == $humans->password)
+    		if($req->password == $human->password)
     		{
-    			$humans->api_token=str_random(50);
-    			$humans->save();
-    			return response()->json('Авторизация прошла успешно, api_token:'. $humans->api_token);
+    			$human->api_token=str_random(50);
+    			$human->save();
+    			return response()->json('Авторизация прошла успешно, api_token:'. $human->api_token);
     		}
     	}
-    	return response()->json('Логин или пароль введены неверно, api_token:'. $humans->api_token);
+        
+    	return response()->json('Логин или пароль введены неверно, api_token:'. $human->api_token);
     }
 
     public function logout(Request $req)
     {
-     	$humans = Human::where("api_token", $req->api_token)->first();
+     	$human = Human::where("api_token", $req->api_token)->first();
 
-     	if($humans)
+     	if($human)
      	{
-     		$humans->api_token = null;
-     		$humans->save();
+     		$human->api_token = null;
+     		$human->save();
      		return response()->json('Разлогирование прошло успешно');
      	}
     } 

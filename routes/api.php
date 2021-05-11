@@ -32,3 +32,15 @@ use Illuminate\Http\Request;
     Route::post('addhuman', 'HumansController@auth');
 
     Route::post('logout', 'HumansController@logout');
+
+    Route::post('check', 'HumansController@check');
+    Route::post('checks', 'ReservController@checks');
+
+
+
+    /*Route::get('yhevner', 'GeorController@getGeor');
+    Route::post('addpost', 'GeorController@postGeor');
+    Route::patch('addpatch', 'GeorController@patchGeor');*/
+    
+    Route::post('regstr', 'RegController@regPost');
+    Route::post('avto', 'RegController@avtoPost');

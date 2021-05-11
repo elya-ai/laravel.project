@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Human extends Model
+class Avto extends Model
 {
-    public $table = "human";
+    public $table = "students";
 
     public $timestamps = false;
 
     public $fillable = [
-    	'id', 'name', 'login', 'password',
+    	'id', 'name', 'last_name', 'login', 'password',
     ];
 }
